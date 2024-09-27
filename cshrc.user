@@ -1,0 +1,27 @@
+alias .. 'cd ..'
+set autolist
+setenv GIT_BRANCH_CMD "sh -c 'git rev-parse --abbrev-ref HEAD 2> /dev/null' | sed -e 's/\(.*\)/\1 /'"
+
+source ~/.cshrc_color
+
+
+# Alias
+alias gd "gvimdiff"
+alias gall 'find -name "*.sv*" -type f | grep -v "nvme" | xargs gvim'
+alias cls clear
+alias l 'ls -l'
+alias la 'ls'
+alias g 'gvim -p'
+alias v 'vim -p'
+alias grep 'grep --color=auto'
+alias wtail 'watch tail'
+
+setenv GIT_EDITOR vim
+
+## Compilation alias
+#setenv LC_ALL en_US.UTF-8
+stty erase '^?'
+xmodmap -e 'keycode 23 = Tab ISO_Left_Tab'
+
+# Multiple lines fetching between 2 matched pattern
+alias mgrep 'awk '\''/\<\!:1\>/{p=1};p;/\<\!:2\>/{p=0}'\'' \!:3'
